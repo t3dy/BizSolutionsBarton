@@ -15,6 +15,7 @@ import {
   DollarSign,
   TrendingUp,
   Zap,
+  Wrench,
 } from 'lucide-react';
 import { Card } from '../components/Card';
 import { PageHeader } from '../components/PageHeader';
@@ -28,6 +29,7 @@ interface Solution {
   price: string;
   monthly: string;
   buildTime: string;
+  myBuildCost: string;
   demoTo: string;
   color: string;
   iconBg: string;
@@ -42,223 +44,231 @@ const solutions: Solution[] = [
     id: 'website',
     icon: Globe,
     name: 'Modern Website Redesign',
-    tagline: 'Replace your dated brochure site with a fast, mobile-first site that converts visitors into leads.',
-    price: '$1,500',
-    monthly: '$49/mo',
-    buildTime: '2–3 weeks',
+    tagline: 'Replace the current site with something fast, mobile-friendly, and designed to turn visitors into quote requests.',
+    price: '$750',
+    monthly: '$15/mo',
+    buildTime: '3–5 days',
+    myBuildCost: '~6 hrs dev + $15/mo hosting',
     demoTo: '/',
     color: 'border-brand-300',
     iconBg: 'bg-brand-50 text-brand-600',
     features: [
-      'Responsive, mobile-optimized design',
-      'SEO-optimized pages & meta tags',
-      'Google Business Profile setup',
-      'Fast load times (< 2s)',
-      'Hosted & maintained for you',
+      'Responsive, mobile-first design',
+      'SEO basics (meta tags, sitemap, speed)',
+      'Google Business Profile link & map embed',
+      'Fast hosting on Vercel or Netlify (free tier)',
+      'Easy to update — I handle changes for you',
     ],
-    timeSaved: '5+ hrs/week',
-    moneySaved: '+$3,000–6,000/mo revenue',
+    timeSaved: '2–3 hrs/week',
+    moneySaved: '1–3 extra leads/mo',
     roiDetail:
-      'A modern site converts 2–3× more visitors into quote requests. If your current site gets 800 visits/month and converts at 3%, that\'s 24 leads. A redesigned site converting at 7% gives you 56 leads — 32 extra leads/month. At a 40% close rate and $2,000 avg job, that\'s $25,600 more per month.',
+      'Your current site probably gets 300–600 visits/month. A cleaner design with a clear "Get a Quote" button can bump your conversion rate from ~2% to ~4%. That\'s maybe 6–12 extra quote requests a month. If you close a third of those at ~$1,800 avg, that\'s $3,600–7,200. Realistic? Even 1 extra booked job covers the build cost.',
   },
   {
     id: 'quote',
     icon: Calculator,
     name: 'Instant Quote Calculator',
-    tagline: 'Let customers get a ballpark estimate in 60 seconds — and capture their info automatically.',
-    price: '$900',
-    monthly: '$29/mo',
-    buildTime: '1–2 weeks',
+    tagline: 'Customers pick their home size, add-ons, and move date — and get a ballpark price in 30 seconds.',
+    price: '$400',
+    monthly: '$0',
+    buildTime: '1–2 days',
+    myBuildCost: '~3 hrs dev, no ongoing cost',
     demoTo: '/quote',
     color: 'border-emerald-300',
     iconBg: 'bg-emerald-50 text-emerald-600',
     features: [
-      'Embeds on your existing website',
-      'Customizable pricing logic',
-      'Auto-captures lead info (name, email, phone)',
-      'Email notification on every submission',
-      'Mobile-friendly form',
+      'Embeds right on your existing site',
+      'You set the pricing logic (hourly rate, minimums)',
+      'Captures name + email + phone on submit',
+      'Sends you an email for every new quote',
+      'No backend needed — runs in the browser',
     ],
-    timeSaved: '8–10 hrs/week',
-    moneySaved: '+$4,000–8,000/mo revenue',
+    timeSaved: '3–4 hrs/week',
+    moneySaved: 'Captures after-hours leads',
     roiDetail:
-      'You currently spend 15–20 min on every phone quote. The calculator handles the initial estimate instantly, 24/7. Customers who get an instant quote are 3× more likely to book vs. those who have to wait for a callback. Expect 2–4 extra bookings/month from after-hours submissions alone.',
+      'Right now if someone visits your site at 9 PM they have to call or fill out a generic contact form — most don\'t bother. A quote calculator gives them a number instantly and captures their info. You probably lose 2–4 leads/week to this. Even converting 1 extra job/month at $1,800 pays for this tool in the first month.',
   },
   {
     id: 'ai',
     icon: MessageSquare,
-    name: 'AI Moving Assistant',
-    tagline: 'A smart chatbot on your site that qualifies leads, answers FAQs, and generates quotes at 2 AM.',
-    price: '$2,000',
-    monthly: '$59/mo',
-    buildTime: '2–3 weeks',
+    name: 'AI Chat Assistant',
+    tagline: 'A chatbot on your site that answers moving questions and collects lead info when you\'re not available.',
+    price: '$800',
+    monthly: '$25/mo',
+    buildTime: '3–5 days',
+    myBuildCost: '~5 hrs dev + ~$20/mo API costs',
     demoTo: '/assistant',
     color: 'border-violet-300',
     iconBg: 'bg-violet-50 text-violet-600',
     features: [
-      'Natural conversation about their move',
-      'Extracts structured data (origin, size, date)',
-      'Generates quotes in real time',
-      'Answers common questions (insurance, packing, timing)',
-      'Sends lead data to your dashboard or email',
+      'Answers common questions (rates, insurance, areas served)',
+      'Collects move details through conversation',
+      'Sends you a summary email with lead info',
+      'Works 24/7 including weekends',
+      'Trained on your specific services and pricing',
     ],
-    timeSaved: '10–15 hrs/week',
-    moneySaved: '+$5,000–12,000/mo revenue',
+    timeSaved: '4–5 hrs/week',
+    moneySaved: '1–2 extra leads/mo',
     roiDetail:
-      'The average moving company misses 40–60% of after-hours inquiries. An AI assistant captures those leads instantly. It also pre-qualifies customers so your team only talks to serious buyers. Companies using AI chat see a 35% increase in booked jobs within 90 days.',
+      'Most visitors have 2–3 questions before they\'re ready to book: "Do you cover Round Rock?" "How much for a 2BR?" "Are you insured?" Right now they either call (and you might miss it) or leave. The chatbot answers instantly and captures their info. The $25/mo API cost covers ~500 conversations. Even 1 extra booking per month makes this a no-brainer.',
   },
   {
     id: 'leads',
     icon: Users,
-    name: 'Lead Management Dashboard',
-    tagline: 'Stop tracking leads in spreadsheets. See every customer\'s status at a glance.',
-    price: '$1,800',
-    monthly: '$49/mo',
-    buildTime: '2–3 weeks',
+    name: 'Lead Tracker',
+    tagline: 'A simple dashboard to see all your leads in one place instead of scattered across texts, emails, and voicemails.',
+    price: '$600',
+    monthly: '$10/mo',
+    buildTime: '2–3 days',
+    myBuildCost: '~4 hrs dev + $10/mo database',
     demoTo: '/leads',
     color: 'border-amber-300',
     iconBg: 'bg-amber-50 text-amber-600',
     features: [
-      'Pipeline view: New → Quoted → Booked → Completed',
-      'Search, filter, and sort leads',
-      'Notes and follow-up reminders',
-      'Auto-import from quote calculator & AI assistant',
-      'Export to CSV for accounting',
+      'See all leads: New → Quoted → Booked → Done',
+      'Search and filter by date, status, or name',
+      'Add notes and follow-up reminders',
+      'Auto-imports from quote calculator & chatbot',
+      'Simple — no bloated CRM to learn',
     ],
-    timeSaved: '6–8 hrs/week',
-    moneySaved: 'Recover $2,000–5,000/mo in lost leads',
+    timeSaved: '2–3 hrs/week',
+    moneySaved: 'Stop losing track of leads',
     roiDetail:
-      'The average moving company loses 20–30% of leads due to slow follow-up or forgetting to call back. A dashboard with reminders and status tracking recovers those lost jobs. At $2,000/job, saving just 2 leads per month adds $4,000 in revenue.',
+      'Be honest — how many leads have you forgotten to follow up on this month? For most 2–3 crew operations, the answer is 3–5. Each one is a potential $1,800 job. A simple dashboard with "follow up needed" flags means fewer leads slip through. Recovering even 1 lost lead per month = $1,800, which is 3× the build cost.',
   },
   {
     id: 'scheduling',
     icon: Calendar,
-    name: 'Crew Scheduling System',
-    tagline: 'Replace the whiteboard. Assign crews and trucks with a drag-and-drop calendar.',
-    price: '$2,200',
-    monthly: '$59/mo',
-    buildTime: '3–4 weeks',
+    name: 'Crew Scheduling Board',
+    tagline: 'See which crew is working which job on which day. No more whiteboard, no more group texts.',
+    price: '$800',
+    monthly: '$10/mo',
+    buildTime: '3–5 days',
+    myBuildCost: '~5 hrs dev + $10/mo database',
     demoTo: '/scheduling',
     color: 'border-brand-300',
     iconBg: 'bg-brand-50 text-brand-600',
     features: [
-      'Visual calendar with crew assignments',
-      'Truck and equipment tracking',
-      'Conflict detection (double-booking prevention)',
-      'Crew availability management',
-      'Job details at a glance',
+      'Weekly calendar view with crew assignments',
+      'See which truck goes where',
+      'Spot double-bookings before they happen',
+      'Job details (address, time, customer) at a glance',
+      'Works on your phone too',
     ],
-    timeSaved: '8–12 hrs/week',
-    moneySaved: 'Save $1,500–3,000/mo in scheduling errors',
+    timeSaved: '3–5 hrs/week',
+    moneySaved: 'Avoid costly double-bookings',
     roiDetail:
-      'Double-bookings cost you the job ($2,000) plus the crew\'s idle time ($500). Scheduling errors also tank your reviews. A proper system eliminates these mistakes entirely and lets you fit 10–15% more jobs per week through better time-slot optimization.',
+      'A double-booking costs you the job (~$1,800) plus the customer\'s bad review. With 2–3 crews running, scheduling mistakes happen 1–2x per month during busy season. This tool doesn\'t just save time on the whiteboard — it prevents the mistakes that cost you real money and reputation damage.',
   },
   {
     id: 'portal',
     icon: UserCircle,
-    name: 'Customer Portal',
-    tagline: 'Give customers a branded portal to track their move, view documents, and pay online.',
-    price: '$2,000',
-    monthly: '$59/mo',
-    buildTime: '3–4 weeks',
+    name: 'Customer Move Tracker',
+    tagline: 'A simple page where customers can see their move status, crew info, and documents — instead of calling you.',
+    price: '$600',
+    monthly: '$10/mo',
+    buildTime: '2–4 days',
+    myBuildCost: '~4 hrs dev + $10/mo hosting',
     demoTo: '/portal',
     color: 'border-rose-300',
     iconBg: 'bg-rose-50 text-rose-600',
     features: [
-      'Move timeline & status tracking',
-      'Inventory checklist',
-      'Document sharing (contract, insurance, invoice)',
-      'Online payment collection',
-      'Branded with your company logo',
+      'Customer sees: move date, crew, truck, timeline',
+      'Upload contract & insurance docs',
+      'Inventory checklist they can fill out',
+      'Payment status and balance due',
+      'Branded with your company name',
     ],
-    timeSaved: '5–8 hrs/week',
-    moneySaved: 'Get paid 2× faster + fewer disputes',
+    timeSaved: '2–4 hrs/week',
+    moneySaved: 'Fewer "where\'s my crew?" calls',
     roiDetail:
-      'Customers check on their move 4–5 times before moving day. Each call costs you 10–15 min. A portal handles those questions automatically. Online payments also reduce your average collection time from 14 days to 2 days, improving cash flow by $8,000–15,000/month.',
+      'Between booking and move day, a customer calls you 3–5 times: "What time is the crew coming?" "Can I see my contract?" "Do I still owe anything?" Each call is 5–10 min. With 15–20 active jobs/month, that\'s 4–8 hours answering the same questions. A portal page eliminates most of those calls.',
   },
   {
     id: 'reviews',
     icon: Star,
-    name: 'Review Automation',
-    tagline: 'Automatically request reviews after every move. Build 5-star reputation on autopilot.',
-    price: '$1,200',
-    monthly: '$39/mo',
-    buildTime: '1–2 weeks',
+    name: 'Review Request Automation',
+    tagline: 'After every move, automatically text the customer asking for a Google review.',
+    price: '$400',
+    monthly: '$15/mo',
+    buildTime: '1–2 days',
+    myBuildCost: '~2 hrs dev + $12/mo Twilio SMS',
     demoTo: '/reviews',
     color: 'border-amber-300',
     iconBg: 'bg-amber-50 text-amber-600',
     features: [
-      'Automated SMS review request (Day 1 after move)',
-      'Email follow-up reminder (Day 3)',
-      'Direct links to Google, Yelp, Facebook',
-      'Review monitoring dashboard',
-      'Response rate tracking',
+      'Auto-sends SMS 24 hrs after move is marked done',
+      'Follow-up email if no review after 3 days',
+      'Direct link to your Google review page',
+      'Tracks who left a review and who didn\'t',
+      'Simple dashboard with response rates',
     ],
-    timeSaved: '3–5 hrs/week',
-    moneySaved: '+$3,000–8,000/mo from reputation',
+    timeSaved: '1–2 hrs/week',
+    moneySaved: 'More reviews = more leads',
     roiDetail:
-      'Moving from 4.2 to 4.7 stars on Google can increase your quote requests by 25–40%. Each additional star drives roughly 5–9% more revenue. Automated requests typically double your review volume and push your rating up 0.3–0.5 stars within 6 months.',
+      'You probably do 15–20 jobs/month. Right now maybe 1–2 customers leave a review. With automated requests, expect 5–8 reviews/month. Going from 30 reviews to 80+ reviews on Google makes you show up higher in local search and look more trustworthy. Each 0.1 star increase on Google drives roughly 2–3% more clicks to your listing.',
   },
   {
     id: 'analytics',
     icon: BarChart3,
-    name: 'Business Analytics Dashboard',
-    tagline: 'See revenue, conversion rates, crew utilization, and growth trends in real time.',
-    price: '$1,500',
-    monthly: '$49/mo',
-    buildTime: '2–3 weeks',
+    name: 'Business Dashboard',
+    tagline: 'See your actual numbers: how many leads came in, how many booked, revenue this month, crew utilization.',
+    price: '$500',
+    monthly: '$10/mo',
+    buildTime: '2–3 days',
+    myBuildCost: '~3 hrs dev + $10/mo database',
     demoTo: '/analytics',
     color: 'border-brand-300',
     iconBg: 'bg-brand-50 text-brand-600',
     features: [
-      'Revenue tracking & trends',
-      'Lead-to-booking conversion funnel',
-      'Crew utilization rates',
-      'Marketing channel attribution',
-      'Custom date ranges & exports',
+      'Monthly revenue tracker',
+      'Lead → quote → booking conversion rate',
+      'Crew utilization (how busy is each crew?)',
+      'Simple charts — not a wall of numbers',
+      'Pulls data from the other tools automatically',
     ],
-    timeSaved: '4–6 hrs/week',
-    moneySaved: '+$2,000–5,000/mo through better decisions',
+    timeSaved: '1–2 hrs/week',
+    moneySaved: 'Know what\'s working, cut what isn\'t',
     roiDetail:
-      'Most moving companies can\'t answer "which marketing channel brings the best customers?" Analytics lets you stop wasting money on ads that don\'t convert and double down on what works. Companies using data dashboards see 15–25% revenue growth within the first year.',
+      'Can you answer right now: what\'s your lead-to-booking rate? Which month is your slowest? Is Crew B as busy as Crew A? If not, you\'re making decisions on gut feel. A dashboard won\'t directly make you money, but it shows you where you\'re leaving money on the table — like a 30% close rate that should be 45%.',
   },
 ];
 
 /* ── bundle tiers ── */
 const bundles = [
   {
-    name: 'Starter Bundle',
+    name: 'Starter',
     tagline: 'Website + Quote Calculator',
     items: ['website', 'quote'],
-    bundlePrice: '$2,000',
-    fullPrice: '$2,400',
-    savings: '$400',
-    monthly: '$59/mo',
-    buildTime: '2–3 weeks',
+    bundlePrice: '$999',
+    fullPrice: '$1,150',
+    savings: '$151',
+    monthly: '$15/mo',
+    buildTime: '1 week',
     color: 'border-emerald-400',
     popular: false,
   },
   {
-    name: 'Growth Bundle',
-    tagline: 'The full operations platform',
+    name: 'Growth',
+    tagline: 'The full toolkit',
     items: ['website', 'quote', 'ai', 'leads', 'scheduling', 'reviews', 'analytics'],
-    bundlePrice: '$8,500',
-    fullPrice: '$11,100',
-    savings: '$2,600',
-    monthly: '$199/mo',
-    buildTime: '5–7 weeks',
+    bundlePrice: '$3,200',
+    fullPrice: '$4,250',
+    savings: '$1,050',
+    monthly: '$69/mo',
+    buildTime: '2–3 weeks',
     color: 'border-brand-500',
     popular: true,
   },
   {
-    name: 'Everything Bundle',
-    tagline: 'All 8 solutions',
+    name: 'Everything',
+    tagline: 'All 8 tools',
     items: ['website', 'quote', 'ai', 'leads', 'scheduling', 'portal', 'reviews', 'analytics'],
-    bundlePrice: '$10,500',
-    fullPrice: '$13,100',
-    savings: '$2,600',
-    monthly: '$249/mo',
-    buildTime: '7–9 weeks',
+    bundlePrice: '$3,600',
+    fullPrice: '$4,850',
+    savings: '$1,250',
+    monthly: '$79/mo',
+    buildTime: '3–4 weeks',
     color: 'border-violet-400',
     popular: false,
   },
@@ -271,13 +281,13 @@ export const SolutionsPage: React.FC = () => {
     <div className="mx-auto max-w-6xl px-4 py-12">
       <PageHeader
         title="Solutions & Pricing"
-        subtitle="Pick exactly what you need — individual tools or discounted bundles. Every solution pays for itself."
+        subtitle="Pick exactly what you need — one tool, a few, or the full bundle. Honest pricing, no fluff."
         badge="Pricing"
       />
 
       {/* ─── à la carte grid ─── */}
-      <h2 className="mb-2 text-2xl font-bold text-gray-900">A La Carte Solutions</h2>
-      <p className="mb-8 text-gray-500">Build your own stack. Pick one, pick a few, or grab a bundle below.</p>
+      <h2 className="mb-2 text-2xl font-bold text-gray-900">A La Carte</h2>
+      <p className="mb-8 text-gray-500">Each tool is standalone. Start with one, add more later. No lock-in.</p>
 
       <div className="grid gap-6 md:grid-cols-2">
         {solutions.map((s) => {
@@ -299,12 +309,21 @@ export const SolutionsPage: React.FC = () => {
               {/* Pricing row */}
               <div className="mt-5 flex flex-wrap items-baseline gap-x-4 gap-y-1">
                 <span className="text-3xl font-bold text-gray-900">{s.price}</span>
-                <span className="text-sm text-gray-400">one-time build</span>
-                <span className="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600">
-                  + {s.monthly} hosting
-                </span>
+                <span className="text-sm text-gray-400">one-time</span>
+                {s.monthly !== '$0' && (
+                  <span className="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600">
+                    + {s.monthly} hosting/API
+                  </span>
+                )}
+                {s.monthly === '$0' && (
+                  <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-600">
+                    No monthly cost
+                  </span>
+                )}
               </div>
-              <p className="mt-1 text-xs text-gray-400">Build time: {s.buildTime}</p>
+              <p className="mt-1.5 flex items-center gap-1.5 text-xs text-gray-400">
+                <Wrench className="h-3 w-3" /> {s.buildTime} to build
+              </p>
 
               {/* Features */}
               <ul className="mt-5 flex-1 space-y-2">
@@ -326,7 +345,7 @@ export const SolutionsPage: React.FC = () => {
                 </div>
                 <div className="rounded-lg bg-brand-50 px-3 py-2.5">
                   <div className="flex items-center gap-1.5 text-xs font-medium text-brand-700">
-                    <DollarSign className="h-3.5 w-3.5" /> Revenue Impact
+                    <DollarSign className="h-3.5 w-3.5" /> Impact
                   </div>
                   <p className="mt-0.5 text-sm font-bold text-brand-800">{s.moneySaved}</p>
                 </div>
@@ -338,7 +357,7 @@ export const SolutionsPage: React.FC = () => {
                 className="mt-3 flex items-center gap-1 text-xs font-medium text-brand-600 hover:text-brand-800"
               >
                 <TrendingUp className="h-3.5 w-3.5" />
-                {isExpanded ? 'Hide ROI breakdown' : 'See the math →'}
+                {isExpanded ? 'Hide details' : 'How does this pay for itself? →'}
               </button>
               {isExpanded && (
                 <div className="mt-2 rounded-lg border border-brand-100 bg-brand-50/50 p-3 text-xs leading-relaxed text-gray-700">
@@ -351,7 +370,7 @@ export const SolutionsPage: React.FC = () => {
                 to={s.demoTo}
                 className="mt-5 flex items-center justify-center gap-2 rounded-lg border border-gray-300 py-2.5 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-50"
               >
-                Try demo <ArrowRight className="h-3.5 w-3.5" />
+                Try the demo <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </Card>
           );
@@ -360,9 +379,9 @@ export const SolutionsPage: React.FC = () => {
 
       {/* ─── Bundle deals ─── */}
       <div className="mt-20">
-        <h2 className="mb-2 text-2xl font-bold text-gray-900">Bundle & Save</h2>
+        <h2 className="mb-2 text-2xl font-bold text-gray-900">Bundles</h2>
         <p className="mb-8 text-gray-500">
-          Combine solutions for a discount. Bundles share infrastructure so the build is faster and cheaper.
+          Get multiple tools built together for less. Shared infrastructure means faster delivery and lower cost.
         </p>
 
         <div className="grid gap-8 lg:grid-cols-3">
@@ -390,7 +409,7 @@ export const SolutionsPage: React.FC = () => {
                   <span className="text-sm text-gray-400 line-through">{b.fullPrice}</span>
                 </div>
                 <p className="text-sm font-medium text-emerald-600">Save {b.savings}</p>
-                <p className="mt-1 text-sm text-gray-400">+ {b.monthly} hosting &middot; {b.buildTime}</p>
+                <p className="mt-1 text-sm text-gray-400">+ {b.monthly} ongoing &middot; Built in {b.buildTime}</p>
 
                 <ul className="mb-6 mt-5 flex-1 space-y-2.5">
                   {includedSolutions.map((s) => {
@@ -421,35 +440,35 @@ export const SolutionsPage: React.FC = () => {
         </div>
       </div>
 
-      {/* ─── ROI summary ─── */}
+      {/* ─── Honest ROI section ─── */}
       <div className="mt-16 rounded-2xl bg-gradient-to-r from-brand-50 to-violet-50 p-8">
-        <h3 className="text-center text-2xl font-bold text-gray-900">The math is simple</h3>
+        <h3 className="text-center text-2xl font-bold text-gray-900">Realistic expectations</h3>
         <div className="mx-auto mt-6 grid max-w-4xl gap-6 sm:grid-cols-3">
           <div className="rounded-xl bg-white p-5 text-center shadow-sm">
             <Zap className="mx-auto h-8 w-8 text-amber-500" />
-            <p className="mt-3 text-2xl font-bold text-gray-900">50+ hrs/mo</p>
+            <p className="mt-3 text-2xl font-bold text-gray-900">10–15 hrs/mo</p>
             <p className="mt-1 text-sm text-gray-500">
-              Time saved across quoting, scheduling, follow-ups, and review chasing
+              Time you get back from fewer phone quotes, scheduling headaches, and "where's my crew?" calls
             </p>
           </div>
           <div className="rounded-xl bg-white p-5 text-center shadow-sm">
             <TrendingUp className="mx-auto h-8 w-8 text-emerald-500" />
-            <p className="mt-3 text-2xl font-bold text-gray-900">+$8k–20k/mo</p>
+            <p className="mt-3 text-2xl font-bold text-gray-900">2–4 extra jobs/mo</p>
             <p className="mt-1 text-sm text-gray-500">
-              Additional revenue from captured leads, faster quotes, and better reviews
+              From leads you currently miss — after-hours visitors, forgotten follow-ups, slow callbacks
             </p>
           </div>
           <div className="rounded-xl bg-white p-5 text-center shadow-sm">
             <DollarSign className="mx-auto h-8 w-8 text-brand-500" />
-            <p className="mt-3 text-2xl font-bold text-gray-900">&lt; 60 days</p>
+            <p className="mt-3 text-2xl font-bold text-gray-900">$3,600–7,200/mo</p>
             <p className="mt-1 text-sm text-gray-500">
-              Typical payback period — most solutions pay for themselves within 2 months
+              At your ~$1,800 avg job value — the Growth bundle pays for itself in 2–4 weeks
             </p>
           </div>
         </div>
         <p className="mx-auto mt-6 max-w-2xl text-center text-sm text-gray-500">
-          These estimates are based on industry benchmarks for moving companies doing $30k–80k/month in revenue
-          with 2–4 crews. Your results may vary, but the tools are designed to pay for themselves quickly.
+          These are conservative estimates for a 2–3 crew operation doing 15–20 jobs/month in the Austin area.
+          The biggest wins come from capturing leads you're currently losing and cutting time spent on calls that software can handle.
         </p>
       </div>
     </div>
