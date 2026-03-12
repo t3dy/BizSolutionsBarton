@@ -41,3 +41,23 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   margin: 0;
 }
+
+/* Fix recharts SVG rendering with Tailwind CSS v4 reset */
+.recharts-surface {
+  overflow: visible;
+}
+
+.recharts-wrapper svg {
+  overflow: visible;
+}
+
+.recharts-cartesian-grid line,
+.recharts-cartesian-axis line,
+.recharts-cartesian-axis-tick line {
+  stroke-width: 1;
+}
+
+/* Ensure recharts bar and line elements render correctly */
+.recharts-rectangle {
+  shape-rendering: crispEdges;
+}
