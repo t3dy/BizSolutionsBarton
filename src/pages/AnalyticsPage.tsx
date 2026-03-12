@@ -2,7 +2,6 @@ import React from 'react';
 import {
   DollarSign,
   Users,
-  TrendingUp,
   Truck,
   Heart,
   Target,
@@ -85,7 +84,7 @@ export const AnalyticsPage: React.FC = () => (
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="month" tick={{ fontSize: 12 }} />
             <YAxis tick={{ fontSize: 12 }} tickFormatter={(v) => `$${v / 1000}k`} />
-            <Tooltip formatter={(value: number) => [`$${value.toLocaleString()}`, 'Revenue']} />
+            <Tooltip formatter={(value) => [`$${Number(value).toLocaleString()}`, 'Revenue']} />
             <Bar dataKey="revenue" fill="#3b82f6" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
@@ -156,13 +155,13 @@ export const AnalyticsPage: React.FC = () => (
                 cx="50%"
                 cy="50%"
                 outerRadius={80}
-                label={({ crew, utilization }) => `${crew}: ${utilization}%`}
+                label={({ name, value }) => `${name}: ${value}%`}
               >
                 {crewUtilization.map((_, i) => (
                   <Cell key={i} fill={COLORS[i]} />
                 ))}
               </Pie>
-              <Tooltip formatter={(value: number) => [`${value}%`, 'Utilization']} />
+              <Tooltip formatter={(value) => [`${value}%`, 'Utilization']} />
             </PieChart>
           </ResponsiveContainer>
         </div>

@@ -4,7 +4,6 @@ import {
   MessageSquare,
   Mail,
   CheckCircle2,
-  Circle,
   ArrowRight,
   Send,
   Clock,
