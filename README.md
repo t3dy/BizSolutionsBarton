@@ -60,6 +60,13 @@ src/
   main.tsx       # Entry point
 ```
 
+## Related Resources
+
+| Resource | Link |
+|----------|------|
+| **Solutions Catalog** (explains each tool in plain English) | [t3dy.github.io/BartonCatalog](https://t3dy.github.io/BartonCatalog/) |
+| **Solutions Catalog Repo** (includes quiz, pitch script, build docs) | [github.com/t3dy/BartonCatalog](https://github.com/t3dy/BartonCatalog) |
+
 ---
 
-Built as a sales demo for Barton Springs Moving.
+Built as a sales demo for Barton Springs Moving with [Claude Code](https://claude.ai/claude-code).
