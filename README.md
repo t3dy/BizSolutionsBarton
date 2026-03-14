@@ -65,7 +65,9 @@ src/
 | Resource | Link |
 |----------|------|
 | **Solutions Catalog** (explains each tool in plain English) | [t3dy.github.io/BartonCatalog](https://t3dy.github.io/BartonCatalog/) |
+| **Hiring Guide** (complete mover hiring action mapping) | [t3dy.github.io/BartonHiring](https://t3dy.github.io/BartonHiring/) |
 | **Solutions Catalog Repo** (includes quiz, pitch script, build docs) | [github.com/t3dy/BartonCatalog](https://github.com/t3dy/BartonCatalog) |
+| **Hiring Guide Repo** | [github.com/t3dy/BartonHiring](https://github.com/t3dy/BartonHiring) |
 
 ---
 
